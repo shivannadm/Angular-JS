@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular JS</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+    <script>
+        var app = angular.module('myShoppingList',[]);
+        app.controller("myCtrl",function($scope){
+            $scope.products = ['Milk','Bread','Cheese'];
+            $scope.additem = function(){
+                $scope.errortext = " ";
+                if(!$scope.addme){return;}
+                if($scope.products.indexOf($scope.addme)==-1){
+                    $scope.products.push($scope.addme);
+                }else{
+                    $scope.errortext = "The item is already in your shopping list";
+                }
+            }
+            $scope.removeItem = function(x){
+                $scope.errortext = "";
+                $scope.products.splice(X,1);
+            }
+        });
+    </script>
+
+        <div ng-app="myShoppingList" ng-controller="myCtrl">
+            <ul>
+                <li ng-repeat="x in products">
+                    {{x}}<span ng-click = "removeItem($index)">X</span>
+                </li>
+            </ul>
+            <input ng-model = "addme">
+            <button ng-click = "additem()">Add</button>
+            <p>{{errortext}}</p>
+        </div>
+        <p>
+            
+        </p>
+    
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <script>
+        var app = angular.module('myShoppingList', []);
+        app.controller("myCtrl", function($scope) {
+            $scope.products = ['Milk', 'Bread', 'Cheese'];
+            $scope.additem = function() {
+                $scope.errortext = "";
+                if (!$scope.addme) { return; }
+                if ($scope.products.indexOf($scope.addme) == -1) {
+                    $scope.products.push($scope.addme);
+                } else {
+                    $scope.errortext = "The item is already in your shopping list";
+                }
+            };
+            $scope.removeItem = function(x) {
+                $scope.errortext = "";
+                $scope.products.splice(x, 1);
+            };
+        });
+    </script>
+
+    <div ng-app="myShoppingList" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in products">
+                {{x}}<span style="cursor: pointer; color: red;" ng-click="removeItem($index)">X</span>
+            </li>
+        </ul>
+        <input ng-model="addme">
+        <button ng-click="additem()">Add</button>
+        <p>{{errortext}}</p>
+    </div>
+</body>
+</html>
